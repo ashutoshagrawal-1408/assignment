@@ -21,8 +21,20 @@ We assume that you have `git` and `virtualenv` and `virtualenvwrapper` installed
 ## Initializing the Database
 
     # Create DB tables story
-    python manage.py init_db
-
+    CREATE TABLE public.story2
+    (
+        id integer NOT NULL DEFAULT nextval('story_id_seq'::regclass) ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+        title text COLLATE pg_catalog."default" NOT NULL,
+        description text COLLATE pg_catalog."default" NOT NULL,
+        body text COLLATE pg_catalog."default" NOT NULL,
+        tags text[] COLLATE pg_catalog."default",
+        created timestamp(4) with time zone NOT NULL DEFAULT now(),
+        published boolean NOT NULL DEFAULT false,
+        CONSTRAINT story_pkey PRIMARY KEY (id)
+    )
+    
+    
+    # Change DB credentials in db_utils.py from line no 9 to 12
 
 ## Running the app
 
