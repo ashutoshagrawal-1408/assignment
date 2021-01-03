@@ -1,0 +1,8 @@
+connexion[swagger-ui]
+jsonschema==2.6.0
+psycopg2-binary==2.8.6
+pyspellchecker==0.5.6
+readtime==1.1.1
+connexion==2.7.0
+Flask==1.1.1
+flask_request_validator==3.0.0
