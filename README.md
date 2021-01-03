@@ -11,10 +11,11 @@ We assume that you have `git` and `virtualenv` and `virtualenvwrapper` installed
 
     # Create the 'my_app' virtual environment
     python3 -m venv my_app
+    virtualenv my_app/
 
     # Install required Python packages
     cd ~/dev/my_app
-    workon my_app
+    source my_app/bin/activate
     pip3 install -r requirements.txt
 
 ## Initializing the Database
