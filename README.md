@@ -42,3 +42,4 @@ We assume that you have `git` and `virtualenv` and `virtualenvwrapper` installed
     python3 server.py
 
 Point your web browser to http://localhost:5000/
+Swagger Url http://localhost:5000/api/ui/#/Story
