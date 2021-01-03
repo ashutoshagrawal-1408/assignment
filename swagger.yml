@@ -1,0 +1,169 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger Rest Article
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+# Paths supported by the server application
+paths:
+  /story:
+    get:
+      operationId: story.read_all
+      tags:
+        - Story
+      summary: Read the entire list of story
+      description: Read the list of story
+      parameters:
+        - name: length
+          in: query
+          type: integer
+          description: Number of story to get from story table
+          required: false
+        - name: offset
+          in: query
+          type: integer
+          description: Offset from beginning of list where to start gathering story
+          required: false
+      responses:
+        200:
+          description: Successfully read story list operation
+          schema:
+            type: array
+            items:
+              properties:
+                title:
+                  type: string
+                  description: Title of story to create
+                description:
+                  type: string
+                  description: Description of story to create
+                body:
+                  type: string
+                  description: Body of story to create  
+                tags:
+                  type: array
+                  items: 
+                    type: string
+                  description: Title of story to create 
+
+    post:
+      operationId: story.create
+      tags:
+        - Story
+      summary: Create a blog and add it to the story list
+      description: Create a new blog in the story list
+      parameters:
+        - name: story
+          in: body
+          description: Story to create
+          required: True
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Title of story to create
+              description:
+                type: string
+                description: Description of story to create
+              body:
+                type: string
+                description: Body of story to create  
+              tags:
+                type: array
+                items: 
+                  type: string
+                description: Title of story to create  
+      responses:
+        201:
+          description: Successfully created blog in list
+
+  /story/{id}:
+    get:
+      operationId: story.read_one
+      tags:
+        - Story
+      summary: Read one blog from the story list
+      description: Read one blog from the story list
+      parameters:
+        - name: id
+          in: path
+          description: Id of the blog to get from the list
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully read blog from story list operation
+          schema:
+            properties:
+              title:
+                type: string
+                description: Title of story to list
+              description:
+                type: string
+                description: Description of story to list
+              body:
+                type: string
+                description: Body of story to list  
+              tags:
+                type: array
+                items: 
+                  type: string
+                description: Title of story to list 
+
+  /story/{id}/publish: 
+    put:
+      operationId: story.publish
+      tags:
+        - Story
+      summary: Update a blog in the story list
+      description: Update a blog in the story list
+      parameters:
+        - name: id
+          in: path
+          description: ID of the blog to update in the list
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully published blog in story list
+  
+  /story/{id}/unpublish: 
+    put:
+      operationId: story.unpublish
+      tags:
+        - Story
+      summary: Update a blog in the story list
+      description: Update a blog in the story list
+      parameters:
+        - name: id
+          in: path
+          description: ID of the blog to update in the list
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully unpublished blog in story list
+
+  /story/{id}/spellchecker: 
+    get:
+      operationId: story.spellchecker
+      tags:
+        - Story
+      summary: Find the incorrect spellings in the story
+      description: Find the incorrect spellings in the story
+      parameters:
+        - name: id
+          in: path
+          description: ID of the blog
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully unpublished blog in story list         
