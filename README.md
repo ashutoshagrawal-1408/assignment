@@ -7,7 +7,7 @@ We assume that you have `git` and `virtualenv` and `virtualenvwrapper` installed
     # Clone the code repository into ~/dev/my_app
     mkdir -p ~/dev
     cd ~/dev
-    git clone https://github.com/lingthio/Flask-User-starter-app.git my_app
+    git clone https://github.com/ashutoshagrawal-1408/assignment.git my_app
 
     # Create the 'my_app' virtual environment
     python3 -m venv my_app
@@ -19,11 +19,8 @@ We assume that you have `git` and `virtualenv` and `virtualenvwrapper` installed
 
 ## Initializing the Database
 
-    # Create DB tables and populate the roles and users tables
+    # Create DB tables story
     python manage.py init_db
-
-    # Or if you have Fabric installed:
-    fab init_db
 
 
 ## Running the app
