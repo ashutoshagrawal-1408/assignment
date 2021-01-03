@@ -21,7 +21,7 @@ We assume that you have `git` and `virtualenv` and `virtualenvwrapper` installed
 ## Initializing the Database
 
     # Create DB tables story
-    CREATE TABLE public.story2
+    CREATE TABLE public.story
     (
         id integer NOT NULL DEFAULT nextval('story_id_seq'::regclass) ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
         title text COLLATE pg_catalog."default" NOT NULL,
